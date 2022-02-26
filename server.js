@@ -14,10 +14,18 @@ app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
+// setting up mongoose
+try {
+    mongoose.connect('mongodb://localhost:27017/journal');
+    console.log('DB CONNECTION SUCCESSFUL!');
+} catch (err) {
+    console.log('DB CONNECTION FAILED!', err);
+}
+
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('home/index');
 });
 
 app.listen(PORT, () => {
-    console.log('The app is running at port ', PORT);
+    console.log('The app is running at port', PORT);
 });
