@@ -9,7 +9,7 @@ require('dotenv').config();
 // middlewares
 app.use(morgan('dev'));
 app.use(express.static('./public'));
-
+app.use(express.urlencoded({ extended: false }));
 //setting up ejs
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
@@ -21,6 +21,19 @@ try {
 } catch (err) {
     console.log('DB CONNECTION FAILED!', err);
 }
+
+app.post('/admin/add', (req, res) => {
+    console.log(req.body);
+    res.send('Nice!');
+});
+
+app.get('/admin/add', (req, res) => {
+    res.render('admin/add');
+});
+
+app.get('/admin', (req, res) => {
+    res.render('admin/index');
+});
 
 app.get('/', (req, res) => {
     res.render('home/index');
