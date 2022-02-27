@@ -1,14 +1,14 @@
 <%- include('../partials/top')  %> 
-    <h1>Add An Entry</h1>
+    <h1>Edit An Entry</h1>
     <div class="row">
-        <form class="col s12" action="/admin/add" method="POST">
+        <form class="col s12" action="/admin/edit/<%= entry._id %> " method="POST">
           <div class="row">
             <div class="input-field col s12">
-              <input placeholder="Enter Title Here..." id="title" name="title" type="text">
+              <input placeholder="Enter Title Here..." id="title" name="title" type="text" value="<%= entry.title %> ">
               <label for="title">Title</label>
             </div>
             <div class="input-field col s12">
-              <textarea name="description" id="description" class="materialize-textarea"></textarea>
+              <textarea name="description" id="description" class="materialize-textarea"><%= entry.description %> </textarea>
               <label for="description">Description</label>
             </div>
           </div>
