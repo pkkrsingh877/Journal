@@ -1,4 +1,10 @@
 <%- include('../partials/top')  %> 
     <h1>Admin</h1>
     <a href="/admin/add" class="flow-text">Add An Entry</a>
+    <h2>All Entries</h2>
+    <% for( let index = 0; index < entries.length; index++ ) { %>
+        <div><%= entries[index].title %></div>
+        <button>Edit</button>
+        <button>Delete</button> 
+    <% } %>
 <%- include('../partials/bottom')  %> 

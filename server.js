@@ -22,18 +22,10 @@ try {
     console.log('DB CONNECTION FAILED!', err);
 }
 
-app.post('/admin/add', (req, res) => {
-    console.log(req.body);
-    res.send('Nice!');
-});
+// setting routes up
 
-app.get('/admin/add', (req, res) => {
-    res.render('admin/add');
-});
-
-app.get('/admin', (req, res) => {
-    res.render('admin/index');
-});
+const adminRoutes = require('./routes/admin');
+app.use('/admin', adminRoutes);
 
 app.get('/', (req, res) => {
     res.render('home/index');
