@@ -4,13 +4,16 @@ const PORT = 3000;
 const path = require('path');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const Entry = require('./models/entry');
 require('dotenv').config();
 
 // middlewares
 app.use(morgan('dev'));
 app.use(express.static('./public'));
+app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
+
 //setting up ejs
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));

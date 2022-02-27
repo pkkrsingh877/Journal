@@ -1,7 +1,7 @@
 <%- include('../partials/top')  %> 
     <h1>Edit An Entry</h1>
     <div class="row">
-        <form class="col s12" action="/admin/edit/<%= entry._id %> " method="POST">
+        <form class="col s12" action="/admin/edit/<%= entry._id %>?_method=PATCH" method="POST">
           <div class="row">
             <div class="input-field col s12">
               <input placeholder="Enter Title Here..." id="title" name="title" type="text" value="<%= entry.title %> ">
@@ -12,7 +12,7 @@
               <label for="description">Description</label>
             </div>
           </div>
-          <button class="btn purple">Publish</button>
+          <button class="btn purple">Update</button>
         </form>
       </div>
     <%- include('../partials/bottom')  %> 

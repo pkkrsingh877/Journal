@@ -5,8 +5,12 @@ const Entry = require('../models/entry');
 router.patch('/edit/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const entry = await Entry.findById(id);
-        
+        const { title, description } = req.body;
+        const entry = await Entry.findByIdAndUpdate(id, {
+            title: title,
+            description: description
+        }, { new: true });
+        res.redirect('/admin');
     } catch (err) {
         console.log(err);
         res.render('home/error');
