@@ -4,6 +4,7 @@ const PORT = 3000;
 const path = require('path');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const Entry = require('./models/entry');
 require('dotenv').config();
 
 // middlewares
@@ -27,8 +28,19 @@ try {
 const adminRoutes = require('./routes/admin');
 app.use('/admin', adminRoutes);
 
-app.get('/', (req, res) => {
-    res.render('home/index');
+app.get('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const entry = await Entry.findById(id);
+        res.render('home/view', { entry });
+    } catch (err) {
+        res.render('home/error');
+    }
+})
+
+app.get('/', async (req, res) => {
+    const entries = await Entry.find({});
+    res.render('home/index', { entries });
 });
 
 app.listen(PORT, () => {
