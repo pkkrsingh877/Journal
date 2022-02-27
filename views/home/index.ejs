@@ -1,9 +1,10 @@
 <%- include('../partials/top')  %> 
         <h1>Journal | Diary | Todo List | Whatever You Want To Call It</h1>
+        <hr>
     <% for( let index = 0; index < entries.length; index++ ) { %>
         <article>
-            <h2><%= entries[index].title %> </h2>
-            <p><%= entries[index].description %> </p>
+            <h2><a href="/<%= entries[index].id %> " class="purple-text"><%= entries[index].title %></a></h2>
+            <p class="flow-text"><%= entries[index].description %> </p>
         </article>
     <% } %>
 <%- include('../partials/bottom')  %> 
