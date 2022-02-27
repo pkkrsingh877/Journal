@@ -20,7 +20,7 @@ app.set('views', path.join(__dirname, '/views'));
 
 // setting up mongoose
 try {
-    mongoose.connect('mongodb://localhost:27017/journal');
+    mongoose.connect(process.env.MONGO_URI);
     console.log('DB CONNECTION SUCCESSFUL!');
 } catch (err) {
     console.log('DB CONNECTION FAILED!', err);

@@ -1,0 +1,13 @@
+<%- include('../partials/top')  %> 
+    <h1>Please Enter Password to complete deletion... </h1>
+    <div class="row">
+        <form action="/admin/delete/<%= id %>?_method=DELETE" method="POST" class="col s2">
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Enter Password Here..." id="password" name="password" type="password">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <button class="btn purple">Confirm Deletion</button>
+        </form>
+      </div>

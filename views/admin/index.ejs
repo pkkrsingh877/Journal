@@ -6,9 +6,7 @@
         <div class="row">
         <div class="flow-text col s8"><%= entries[index].title %></div>
         <a class="btn col s2" href="/admin/edit/<%= entries[index]._id %> ">Edit</a>
-        <form action="/admin/delete/<%= entries[index]._id %>?_method=DELETE" method="POST" class="col s2">
-            <button class="btn purple">Delete</button>
-        </form>
+        <a href="/admin/confirm/delete/<%= entries[index]._id %>" class="btn purple col s2">Delete</a>
         </div> 
     <% } %>
 <%- include('../partials/bottom')  %> 
