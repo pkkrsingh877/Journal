@@ -1,8 +1,9 @@
 <%- include('../partials/top')  %> 
         <h1>Journal | Diary | Todo List | Whatever You Want To Call It</h1>
-    <p class="flow-text">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat soluta asperiores laboriosam cum reiciendis quo quia impedit, deleniti cupiditate fugit harum repellat quod labore distinctio minima ad. Quo, ducimus architecto.
-    Modi iusto voluptatum, libero quibusdam rerum odit sequi natus vero cum, asperiores recusandae dolore eligendi fugiat in esse. Nam quo aliquid tempora nobis ab fuga odit corporis consequuntur quos sed.
-    Quibusdam laboriosam molestias a accusamus, sint magni, cumque in architecto vitae officia sapiente commodi voluptatem doloribus ex delectus amet rerum dicta consectetur laborum ipsam dolorem expedita! Adipisci nesciunt et ex.
-    </p>
+    <% for( let index = 0; index < entries.length; index++ ) { %>
+        <article>
+            <h2><%= entries[index].title %> </h2>
+            <p><%= entries[index].description %> </p>
+        </article>
+    <% } %>
 <%- include('../partials/bottom')  %> 

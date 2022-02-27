@@ -2,14 +2,12 @@ const mongoose = require('mongoose');
 
 const entrySchema = new mongoose.Schema({
     title: {
-        type: String,
-        required: [true, "Title is required!"]
+        type: String
     },
     description: {
-        type: String,
-        required: [true, "Description is required!"]
+        type: String
     }
-});
+},{ timestamps: true });
 
 const Entry = mongoose.model('Entry', entrySchema);
 
