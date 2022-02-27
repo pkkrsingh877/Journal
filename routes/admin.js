@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Entry = require('./models/entry');
+const Entry = require('../models/entry');
 
-app.post('/add', (req, res) => {
+router.post('/add', async (req, res) => {
     console.log(req.body);
     let entry = await Entry.create({
         title: title,
@@ -15,8 +15,8 @@ router.get('/add', (req, res) => {
     res.render('admin/add');
 });
 
-router.get('/', (req, res) => {
-    const entries = Entry.find({});
+router.get('/', async (req, res) => {
+    const entries = await Entry.find({});
     res.render('admin/index', { entries });
 });
 
