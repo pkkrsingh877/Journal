@@ -2,6 +2,17 @@ const express = require('express');
 const router = express.Router();
 const Entry = require('../models/entry');
 
+router.delete('/delete/:id', async (req, res) => {
+    try{
+        const { id } = req.params;
+        await Entry.findByIdAndDelete(id);
+        res.redirect('/admin');
+    }catch(err){
+        console.log(err);
+        res.render('home/error');
+    }
+});
+
 router.patch('/edit/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -15,7 +26,7 @@ router.patch('/edit/:id', async (req, res) => {
         console.log(err);
         res.render('home/error');
     }
-})
+});
 
 router.get('/edit/:id', async (req, res) => {
     try {
