@@ -2,6 +2,28 @@ const express = require('express');
 const router = express.Router();
 const Entry = require('../models/entry');
 
+router.patch('/edit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const entry = await Entry.findById(id);
+        
+    } catch (err) {
+        console.log(err);
+        res.render('home/error');
+    }
+})
+
+router.get('/edit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const entry = await Entry.findById(id);
+        res.render('admin/edit', { entry });
+    } catch (err) {
+        console.log(err);
+        res.render('home/error'); 
+    }
+})
+
 router.post('/add', async (req, res) => {
     try {
         const { title, description } = req.body;
